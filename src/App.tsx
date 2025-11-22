@@ -83,8 +83,8 @@ const BLOCKS = [
         a: "För att motverka moral hazard – när individen betalar en del av kostnaden blir hen mer kostnadsmedveten och överkonsumtionen minskar."
       },
       {
-        q: "Hur relaterar "Market for Lemons" till försäkring?",
-        a: "Precis som med bilarna i Akerlofs exempel kan dold information om risktyper göra att bara "dåliga risker" blir kvar på försäkringsmarknaden när premien stiger."
+          q: 'Hur relaterar "Market for Lemons" till försäkring?',
+          a: 'Precis som med bilarna i Akerlofs exempel kan dold information om risktyper göra att bara "dåliga risker" blir kvar på försäkringsmarknaden när premien stiger.'
       }
     ]
   }
