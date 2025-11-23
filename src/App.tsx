@@ -932,68 +932,169 @@ const BLOCKS: Block[] = [
     description:
       "Externaliteter, Pigouskatter, cap-and-trade, abatement och värdering av miljö.",
     concepts: [
-      {
-        term: "Negativ externalitet",
-        def: "En handling som åsamkar kostnader för tredje part utan att dessa kompenseras, t.ex utsläpp."
-      },
-      {
-        term: "Pigouvian tax",
-        def: "En skatt som sätts lika med den marginala externa kostnaden för att internalisera externaliteten."
-      },
-      {
-        term: "Cap-and-trade",
-        def: "System där staten sätter ett totalt utsläppstak och delar ut/auktionerar utsläppsrätter som företag får handla med."
-      },
-      {
-        term: "Abatement cost curve",
-        def: "Kurva som visar marginalkostnaden för att reducera utsläpp med ytterligare en enhet."
-      },
-      {
-        term: "Value of a Statistical Life (VSL)",
-        def: "Monetärt mått på värdet av en liten riskreduktion multiplicerat med antal liv."
-      }
+       // 1. Externalities
+    { term: "Negative externality", def: "Handling som skadar tredje part, t.ex utsläpp eller buller." },
+    { term: "Positive externality", def: "Handling som gynnar tredje part, t.ex utbildning, pollinering." },
+    { term: "MPC (Marginal Private Cost)", def: "Marginalkostnad för producenten själv." },
+    { term: "MEC (Marginal External Cost)", def: "Kostnaden som drabbar andra." },
+    { term: "MSC (Marginal Social Cost)", def: "MSC = MPC + MEC. Samhällets totala marginalkostnad." },
+    { term: "Overproduction problem", def: "Negativa externaliteter leder till för hög produktion i marknaden." },
+
+    // 2. Coase theorem
+    { term: "Coase theorem", def: "Om äganderätter är väldefinierade och transaktionskostnader = 0 → privata förhandlingar ger Pareto-effektivitet." },
+    { term: "Distribution vs efficiency", def: "Coase säger att äganderätt påverkar fördelning, inte effektivitet." },
+    { term: "Transaktionskostnader", def: "Hinder som gör Coase-lösning svår: många offer, juridik, mätproblem, brist på information." },
+
+    // 3. Government interventions
+    { term: "Command-and-control regulation", def: "Direkta regler/standarder som begränsar utsläpp." },
+    { term: "Pigouvian tax", def: "Skatt som motsvarar MEC för att internalisera externaliteten." },
+    { term: "Subsidy (positive externality)", def: "Stöd för åtgärder som skapar samhällsnytta." },
+    { term: "Compensation", def: "Skadevållare kompenserar drabbade." },
+    { term: "Environmental information", def: "Nudges, märkning och energiinformation." },
+
+    // 4. Growth & climate
+    { term: "Positive feedback loops", def: "Processer som förstärker sig själva, t.ex is-smältning → mindre albedo." },
+    { term: "Stock pollutant", def: "Förorening som ackumuleras över tid (CO₂)." },
+    { term: "Irreversibility", def: "Skador som inte kan återställas, t.ex tipping points." },
+
+    // 5. Abatement
+    { term: "Abatement cost curve", def: "Marginalkostnaden för att minska utsläpp med en extra enhet." },
+    { term: "Least-cost abatement", def: "Att reducera utsläpp där det är billigast först." },
+    { term: "MRT", def: "Marginal Rate of Transformation — kostnaden i konsumtion för miljöförbättring." },
+    { term: "MRS", def: "Marginal Rate of Substitution — medborgarnas WTP för miljö." },
+    { term: "Optimal abatement", def: "MRS = MRT." },
+    { term: "Technological improvement", def: "Gör abatement billigare och skjuter produktionsteknologi utåt." },
+
+    // 6. Cap-and-trade
+    { term: "Cap-and-trade", def: "Utsläppstak + handel med utsläppsrätter." },
+    { term: "Allowance allocation", def: "Auction (effektivt) eller grandfathering (politisk genomförbarhet)." },
+    { term: "Permit price volatility", def: "Pris svänger med konjunktur och efterfrågan." },
+
+    // 7. Cost–Benefit Analysis (CBA)
+    { term: "Direct costs", def: "Teknik, investeringar, drift." },
+    { term: "Indirect costs", def: "Förlorad konsumtion eller substitution." },
+    { term: "Administrative costs", def: "Kostnader för övervakning och genomförande." },
+    { term: "Use value", def: "Direkt nyttjande av natur (fiske, rekreation)." },
+    { term: "Non-use value", def: "Värde av att naturen finns kvar, även om man inte använder den." },
+    { term: "Option value", def: "Värdet av att ha möjlighet att nyttja naturen i framtiden." },
+
+    // 8. Contingent Valuation
+    { term: "Contingent valuation", def: "Stated preference-metod för att mäta WTP för miljöförändringar." },
+    { term: "Dichotomous choice", def: "Effektivaste elicitation-metoden i CV." },
+    { term: "Hypothetical bias", def: "Folk anger högre WTP än de skulle betala i verkligheten." },
+    { term: "Strategic bias", def: "Respondenter manipulerar sina svar beroende på incitament." },
+
+    // 9. Value of a Statistical Life (VSL)
+    { term: "Value of a Statistical Life (VSL)", def: "WTP för en liten riskreduktion dividerat med riskreduktionen." },
+    { term: "Risk perception problems", def: "Svårt att förstå små sannolikheter och risker." },
+
+    // 10. Behavioral environmental economics
+    { term: "Default effects", def: "Standardval styr beteende, t.ex dubbel-sidigt utskrift." },
+    { term: "Social norms", def: "Information om andras beteende styr individens val." },
+    { term: "Moral appeals", def: "Har ofta liten effekt på miljöbeteende." },
+    { term: "Short-run vs long-run behavior", def: "Nudges kan tappa effekt över tid." }
     ],
     flashcards: [
-      {
-        q: "Vad är huvudproblemet vid negativa externaliteter som utsläpp?",
-        a: "Att marknadspriset inte reflekterar hela samhällskostnaden, vilket leder till överproduktion och för mycket utsläpp."
-      },
-      {
-        q: "Hur fungerar en Pigouvian skatt i teorin?",
-        a: "Genom att sätta en skatt lika med marginal extern kostnad skiftar man producentens beslut så att den samhällsoptimala nivån på produktionen uppnås."
-      },
-      {
-        q: "Vad är grundidén bakom cap-and-trade?",
-        a: "Att bestämma mängden utsläpp politiskt (cap) och låta marknaden hitta den billigaste fördelningen av utsläppsminskningar via handel med utsläppsrätter."
-      },
-      {
-        q: "Vad visar en abatement cost curve?",
-        a: "Hur dyrt det är vid marginalen att reducera ett ton utsläpp med olika tekniker eller åtgärder; används för att prioritera de billigaste åtgärderna först."
-      },
-      {
-        q: "Vad är en 'win-win'-åtgärd i miljöekonomi?",
-        a: "En åtgärd som både minskar utsläpp och sparar pengar, t.ex energieffektivisering där lägre elräkning mer än kompenserar investeringskostnaden."
-      },
-      {
-        q: "Hur definieras value of a statistical life (VSL)?",
-        a: "Som betalningsviljan för en liten riskreduktion dividerat med riskförändringen, t.ex 400 kr för att minska risk från 1/100000 → VSL ≈ 40 miljoner."
-      },
-      {
-        q: "Varför är CO2 ett 'stock pollutant'?",
-        a: "För att det ackumuleras i atmosfären över tid, och det är den totala mängden (stocken) snarare än flödet per år som avgör klimatpåverkan."
-      },
-      {
-        q: "Vad är en positiv återkopplingsloop i klimatsystemet?",
-        a: "En process där en initial uppvärmning leder till effekter (t.ex isavsmältning) som förstärker ytterligare uppvärmning."
-      },
-      {
-        q: "När är regleringar (command-and-control) mer rimliga än priser?",
-        a: "När skadorna är mycket känsliga för överskridanden (t.ex giftiga ämnen) eller när mätning av utsläpp är svår, så att tydliga gränsvärden är enklare."
-      },
-      {
-        q: "Vad är skillnaden mellan lokala och globala miljöproblem i policy-design?",
-        a: "Lokala problem (t.ex NOx) kan lösas nationellt/kommunalt, medan globala problem (t.ex CO2) kräver internationell samordning."
-      }
+     {
+      q: "Vad är skillnaden mellan MPC och MSC?",
+      a: "MPC är producentens marginalkostnad. MSC = MPC + MEC. Ineffektivitet uppstår eftersom MPC < MSC vid negativa externaliteter."
+    },
+    {
+      q: "Varför produceras för mycket vid negativa externaliteter?",
+      a: "Producenten tar inte hänsyn till MEC → priset blir för lågt → kvantiteten för hög."
+    },
+    {
+      q: "Hur löser en Pigou-skatt en negativ externalitet?",
+      a: "Genom att sätta skatt = MEC, så möter producenten MSC och väljer den samhällsoptimala mängden."
+    },
+    {
+      q: "Vad säger Coase-teoremet?",
+      a: "Med noll transaktionskostnader och väldefinierade äganderätter når parterna Pareto-effektivitet via förhandling."
+    },
+    {
+      q: "Varför håller Coase ofta inte i verkligheten?",
+      a: "Pga många berörda, mätproblem, asymmetri, enforcement-kostnader och höga transaktionskostnader."
+    },
+    {
+      q: "Vad är fördelen med cap-and-trade jämfört med regulation?",
+      a: "Billigaste utsläppsminskningarna sker först → minskar totalkostnaden."
+    },
+    {
+      q: "Varför kan cap-and-trade ge fel politiska signaler?",
+      a: "Eftersom man 'köper rätten' att släppa ut → kan uppfattas som att utsläpp är okej om man betalar."
+    },
+    {
+      q: "Vad är least-cost abatement?",
+      a: "Minska utsläpp där det är billigast först för att minimera samhällets kostnad."
+    },
+    {
+      q: "Vad är skillnaden mellan MRT och MRS?",
+      a: "MRT = kostnaden i produktion för miljöförbättring. MRS = medborgarnas betalningsvilja. Optimum: MRS = MRT."
+    },
+    {
+      q: "Hur påverkar teknologisk utveckling optimal abatement?",
+      a: "Teknologin minskar MRT → mer miljöskydd är samhällsekonomiskt optimalt."
+    },
+    {
+      q: "Vad är option value?",
+      a: "Värdet av att bevara möjligheten att använda naturen i framtiden även om man inte använder den nu."
+    },
+    {
+      q: "Vad är hedonic pricing?",
+      a: "Värdering av miljöegenskaper genom marknadspriser, t.ex fastighetspriser kopplat till luftkvalitet."
+    },
+    {
+      q: "Varför används stated preference-metoder?",
+      a: "För att värdera miljövaror utan marknadspris, som arter och landskap."
+    },
+    {
+      q: "Vad är hypothetical bias?",
+      a: "Respondenter anger högre WTP i hypotetiska scenarier än de skulle betala i verkligheten."
+    },
+    {
+      q: "Hur räknar man ut VSL?",
+      a: "VSL = WTP / riskreduktion. Ex: 400 kr / (1/100000) = 40 miljoner."
+    },
+    {
+      q: "Varför är VSL kontroversiellt?",
+      a: "Det sätter monetärt värde på liv och bygger på små sannolikheter som folk ofta missförstår."
+    },
+    {
+      q: "Ge ett exempel på en positiv externalitet inom miljö.",
+      a: "Grönområden förbättrar luft, minskar buller och ökar livskvalitet."
+    },
+    {
+      q: "Vad är en positive feedback loop i klimatet?",
+      a: "Is smälter → lägre albedo → mer värmeabsorbering → mer issmältning."
+    },
+    {
+      q: "Varför är CO₂ en stock pollutant?",
+      a: "Det ackumuleras i atmosfären under mycket lång tid och påverkan beror på total stock, inte årliga flöden."
+    },
+    {
+      q: "Varför räcker det inte att bara minska utsläppen?",
+      a: "Stocken måste stabiliseras. Även minskade utsläpp ökar stocken om de är > nollsänkorna."
+    },
+    {
+      q: "Vad är moral appeals inom miljö?",
+      a: "Budskap som försöker få människor att agera genom moral – men har ofta liten effekt."
+    },
+    {
+      q: "Varför fungerar social norms som nudge?",
+      a: "Folk svarar starkt på jämförelser med andra ('din granne använder 15% mindre vatten')."
+    },
+    {
+      q: "Vad är marginal abatement cost?",
+      a: "Kostnaden för att minska utsläpp med en extra enhet."
+    },
+    {
+      q: "Varför är win-win-åtgärder viktiga?",
+      a: "De minskar utsläpp och sparar pengar — borde implementeras direkt eftersom de har negativ kostnad."
+    },
+    {
+      q: "Vad avgör om nudges fungerar långsiktigt?",
+      a: "Om beteendet är vanebundet och om nudgen förändrar incitament på sikt — många nudges tappar effekt i long run."
+    }
     ]
   },
 
