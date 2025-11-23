@@ -439,68 +439,189 @@ const BLOCKS: Block[] = [
     description:
       "Lorenzkurva, Gini, ekvivalensskalor och intergenerationell rörlighet.",
     concepts: [
-      {
-        term: "Lorenzkurva",
-        def: "Graf som visar kumulativ andel inkomst mot kumulativ andel befolkning, sorterad från fattigast till rikast."
-      },
-      {
-        term: "Gini-koefficient",
-        def: "Mått på ojämlikhet: G = A/(A+B), där A är ytan mellan Lorenzkurvan och 45-graderslinjen."
-      },
-      {
-        term: "Equivalence scales",
-        def: "Justering av hushållsinkomst för hushållsstorlek och sammansättning för att jämföra levnadsstandard."
-      },
-      {
-        term: "Market income vs disposable income",
-        def: "Market income är inkomster före skatt/transfereringar, disposable income efter. Skillnaden visar omfördelningens omfattning."
-      },
-      {
-        term: "Intergenerational elasticity (IGE)",
-        def: "Mått på hur starkt barns inkomster hänger ihop med föräldrars inkomster. Hög IGE = låg rörlighet."
-      }
+        // Typer av ojämlikhet
+    {
+      term: "Income inequality",
+      def: "Skillnader i inkomster (t.ex. lön + kapitalinkomster) mellan individer eller hushåll."
+    },
+    {
+      term: "Wealth inequality",
+      def: "Skillnader i förmögenhet. Förmögenhetsojämlikhet är typiskt mycket större än inkomstojämlikhet."
+    },
+    {
+      term: "Market income",
+      def: "Inkomst före skatter och transfereringar (lön + kapitalinkomster)."
+    },
+    {
+      term: "Disposable income",
+      def: "Inkomst efter skatter och transfereringar. Visar vilken standard hushållet faktiskt har."
+    },
+    {
+      term: "Within-country inequality",
+      def: "Inkomstojämlikhet inom ett land (t.ex. Sverige)."
+    },
+    {
+      term: "Between-country inequality",
+      def: "Skillnader i genomsnittlig inkomst mellan länder (t.ex. Sverige vs Indien)."
+    },
+
+    // Lorenzkurva
+    {
+      term: "Lorenzkurva",
+      def: "Grafisk illustration av ojämlikhet: x-axeln visar kumulativ andel befolkning (fattig → rik), y-axeln kumulativ inkomstandel. 45°-linjen är perfekt jämlikhet."
+    },
+    {
+      term: "Anonymity (Lorenzkurvan)",
+      def: "Det spelar ingen roll vem som har vilken inkomst, bara fördelningen som helhet."
+    },
+    {
+      term: "Population principle",
+      def: "Lorenzkurvan ska inte påverkas av att befolkningen blir större eller mindre – bara andelar spelar roll."
+    },
+    {
+      term: "Scale invariance",
+      def: "Om alla inkomster multipliceras med samma faktor (t.ex. dubbleras) förändras inte ojämlikheten."
+    },
+
+    // Gini
+    {
+      term: "Gini-koefficient",
+      def: "Sammanfattande mått på ojämlikhet baserat på Lorenzkurvan: G = A/(A+B), 0 = perfekt jämlikhet, 1 = maximal ojämlikhet."
+    },
+
+    // Equivalence scales
+    {
+      term: "Equivalence scales",
+      def: "Metoder för att justera hushållsinkomst för hushållsstorlek och sammansättning (t.ex. OECD-skalor, square root) för rättvis jämförelse."
+    },
+    {
+      term: "Economies of scale i hushåll",
+      def: "Större hushåll behöver inte lika mycket per person eftersom vissa kostnader delas."
+    },
+
+    // Categorical inequality
+    {
+      term: "Categorical (group) inequality",
+      def: "Skillnader mellan grupper baserade på 'accidents of birth', t.ex. kön, etnicitet, religion, föräldrar, födelseland."
+    },
+
+    // Intergenerational mobility
+    {
+      term: "Intergenerational mobility",
+      def: "Hur mycket barns ekonomiska utfall beror på föräldrarnas utfall. Hög mobilitet = svag koppling."
+    },
+    {
+      term: "Intergenerational Elasticity (IGE)",
+      def: "Mäter hur starkt barns inkomster korrelerar med föräldrars inkomster. IGE nära 1 → låg mobilitet, IGE nära 0 → hög mobilitet."
+    },
+
+    // Global inequality
+    {
+      term: "Country-weighted inequality",
+      def: "Mäter ojämlikhet mellan länder utifrån länders medelinkomster."
+    },
+    {
+      term: "Global individual-based Gini",
+      def: "Mäter ojämlikhet för alla individer i världen, inte bara ländernas medelvärden."
+    },
+
+    // Middle class & orsaker
+    {
+      term: "Middle class erosion",
+      def: "Minskande andel medelinkomstjobb; fler jobb i låg- och höginkomstsegment → polarisering."
+    },
+    {
+      term: "Sources of inequality",
+      def: "Teknologi, globalisering, institutioner, politik (skatt/bidrag), utbildningsskillnader, hälsa och humankapital."
+    },
+
+    // Normativt
+    {
+      term: "When is inequality unfair?",
+      def: "När den beror på faktorer individen inte kan påverka (accidents of birth) och när möjligheterna är strukturellt olika."
+    }
     ],
     flashcards: [
-      {
-        q: "Vad visar Lorenzkurvan?",
-        a: "Den visar hur stor andel av den totala inkomsten som innehas av de x% fattigaste, för alla x mellan 0 och 100."
-      },
-      {
-        q: "Hur tolkas en Lorenzkurva som ligger långt från 45°-linjen?",
-        a: "Det tyder på hög ojämlikhet – de fattigaste procenten har mycket liten del av total inkomst."
-      },
-      {
-        q: "Vad beskriver Gini-koefficienten?",
-        a: "Ett sammanfattande mått på ojämlikhet mellan 0 (perfekt jämlikhet) och 1 (maximal ojämlikhet)."
-      },
-      {
-        q: "Varför använder man equivalence scales i ojämlikhetsanalys?",
-        a: "För att en krona räcker olika långt i små respektive stora hushåll. Ekvivalensskalor justerar för hushållsstorlek och sammansättning."
-      },
-      {
-        q: "Vad är skillnaden mellan market income och disposable income?",
-        a: "Market income är före skatter och transfereringar, disposable income är efter. Skillnaden fångar statens omfördelande roll."
-      },
-      {
-        q: "Vad innebär en hög intergenerational elasticity (IGE)?",
-        a: "Att barns inkomster i hög grad avgörs av föräldrarnas inkomster – låg social rörlighet."
-      },
-      {
-        q: "Hur kan global ojämlikhet minska samtidigt som nationell ojämlikhet ökar?",
-        a: "Fattiga länder växer snabbare än rika (minskad ojämlikhet mellan länder), samtidigt som klyftorna ökar inom många länder."
-      },
-      {
-        q: "Varför är förmögenhetsojämlikhet ofta större än inkomstojämlikhet?",
-        a: "Förmögenheter ackumuleras över tid genom sparande och avkastning och kan ärvas, vilket förstärker skillnader."
-      },
-      {
-        q: "Vad innebär population principle för Lorenzkurvan?",
-        a: "Att kurvan inte ska påverkas av att vi duplicerar befolkningen – bara relativa andelar spelar roll."
-      },
-      {
-        q: "Ge ett exempel på en policy som minskar Gini-koefficienten.",
-        a: "Progressiv beskattning kombinerad med riktade transfereringar till låginkomsthushåll."
-      }
+    {
+      q: "Vad visar Lorenz-kurvan?",
+      a: "Hur stor andel av den totala inkomsten som ägs av den fattigaste x% av befolkningen. Ger en visuell representation av ojämlikhet."
+    },
+    {
+      q: "Varför visar Lorenz-kurvan alltid en konvex form vid ojämlikhet?",
+      a: "De första procenten av befolkningen äger väldigt lite av total inkomst, vilket gör att kurvan ligger klart under 45°-linjen."
+    },
+    {
+      q: "Vad betyder en Gini på 0,5?",
+      a: "Det tyder på hög ojämlikhet. Halva ytan mellan perfekt jämlikhet och Lorenzkurvan är 'fylld'. Typiskt för mer ojämlika länder."
+    },
+    {
+      q: "Varför används ekvivalensskalor?",
+      a: "För att jämföra inkomster mellan hushåll med olika storlek och sammansättning på ett rättvist sätt. Större hushåll behöver inte lika mycket per person."
+    },
+    {
+      q: "Hur påverkar valet av ekvivalensskala mätning av fattigdom?",
+      a: "Strängare skalor (t.ex. square root) sänker justerad inkomst per person och kan göra att fler hushåll hamnar under fattigdomsgränsen."
+    },
+    {
+      q: "Vad innebär skillnaden mellan market och disposable income?",
+      a: "Den visar hur mycket staten omfördelar via skatter och transfereringar. Stor skillnad → kraftig omfördelningspolitik."
+    },
+    {
+      q: "Varför är wealth inequality normalt högre än income inequality?",
+      a: "Förmögenhet ackumuleras över tid, växer med avkastning och kan ärvas, medan inkomster är mer kortsiktiga och ofta mer beskattade."
+    },
+    {
+      q: "Hur kan teknologi öka ojämlikhet?",
+      a: "Skill-biased technological change gynnar högutbildade och högkvalificerade jobb, vilket ökar deras löner relativt lågutbildade."
+    },
+    {
+      q: "Vad är intergenerational elasticity (IGE)?",
+      a: "Ett mått på hur starkt barns inkomster beror på föräldrarnas. Hög IGE → låg mobilitet, låg IGE → hög mobilitet."
+    },
+    {
+      q: "Varför ökar within-country inequality i många OECD-länder?",
+      a: "P.g.a. globalisering, teknologisk förändring, svagare fack, lägre skatter på höga inkomster och ökade kapitalinkomster."
+    },
+    {
+      q: "Varför minskar global inequality samtidigt som nationell inequality ökar?",
+      a: "Fattiga länder som Kina och Indien växer snabbare (minskad mellan-länder-oägmlikhet), men inom-länder ökar klyftorna."
+    },
+    {
+      q: "Vad beskriver population principle för Lorenzkurvan?",
+      a: "Att kurvans form inte ska påverkas av att vi multiplicerar befolkningen; bara andelar spelar roll."
+    },
+    {
+      q: "Hur kan policy påverka Gini-koefficienten?",
+      a: "Progressiv beskattning, transfereringar och välfärdsprogram minskar Gini för disponibel inkomst."
+    },
+    {
+      q: "Vad menas med 'middle class hollowing out'?",
+      a: "Att jobb i mitten försvinner relativt sett, medan både låg- och höginkomstjobb ökar → en mer polariserad inkomstfördelning."
+    },
+    {
+      q: "Vilken roll spelar utbildning för inkomstojämlikhet?",
+      a: "Skillnader i utbildning skapar skillnader i löner och livsinkomster och är en central drivkraft bakom ojämlikhet."
+    },
+    {
+      q: "Vad fångar relative income hypothesis?",
+      a: "Att individers välbefinnande beror på relativ inkomst (jämfört med andra), inte bara absolut nivå."
+    },
+    {
+      q: "Varför kan Gini-koefficienten ibland vara missvisande?",
+      a: "Två olika inkomstfördelningar kan ha samma Gini, trots att ojämlikheten ligger i olika delar av fördelningen (t.ex. botten vs toppen)."
+    },
+    {
+      q: "Vad är skillnaden mellan pre-tax och post-tax inequality?",
+      a: "Pre-tax mäter marknadsfördelningen, post-tax visar faktisk ojämlikhet efter statens skatter och transfereringar."
+    },
+    {
+      q: "Hur kan migration påverka ojämlikhet?",
+      a: "Den kan minska global ojämlikhet (fattiga flyttar till rikare länder) men kan både öka och minska ojämlikhet inom ett enskilt land beroende på arbetsmarknaden."
+    },
+    {
+      q: "Vad menas med 'accidents of birth' i ojämlikhetsdiskussioner?",
+      a: "Faktorer individen inte kan styra över, som kön, föräldrar, etnicitet, födelseland. Dessa ses ofta som legitima skäl för omfördelning."
+    }
     ]
   },
 
