@@ -48,6 +48,14 @@ const BLOCKS: Block[] = [
         def: "Konkav nyttokurva, individen föredrar säkra utfall framför lotterier med samma EV."
       },
       {
+        term: "Riskneutral",
+        def: "linjär utility, bryr sig inte om risk"
+      },
+      {
+        term: "Risksökande",
+        def: "Konkav nyttokurva, konvex utility, föredrar risk"
+      },
+      {
         term: "Certainty equivalent (CE)",
         def: "Det säkra belopp som ger samma nytta som ett givet lotteri."
       },
