@@ -36,6 +36,10 @@ const BLOCKS: Block[] = [
         def: "Det viktade genomsnittet av möjliga utfall, EV = Σ p_i x_i."
       },
       {
+        term: "St. Petersburg-paradoxen",
+        def: "EV är oändlig men betalningsvilja är begränsad.Motiv för expected utility theory."
+      },
+      {
         term: "Expected utility (EU)",
         def: "Det viktade genomsnittet av nyttor, EU = Σ p_i u(x_i). Tar hänsyn till riskpreferenser."
       },
