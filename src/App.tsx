@@ -70,49 +70,94 @@ const BLOCKS: Block[] = [
       {
         term: "Moral hazard",
         def: "När försäkring förändrar individens beteende, t.ex. mindre prevention eller överkonsumtion av vård."
+      }, 
+        {
+        term: "Law of large numbers",
+        def: "risk sprids i grupp → försäkring möjligt."
       }
     ],
     flashcards: [
       {
-        q: "Vad är skillnaden mellan risk och osäkerhet?",
-        a: "Risk: sannolikheter är kända (t.ex. ett tärningskast). Osäkerhet: sannolikheter är okända eller svåra att ange (t.ex. politiska kriser)."
-      },
-      {
-        q: "Varför räcker inte expected value (EV) för att beskriva beslutsfattande under risk?",
-        a: "För att människor bryr sig om risk, inte bara om genomsnittlig utbetalning. De har riskpreferenser som kräver en nyttokurva (expected utility)."
-      },
-      {
-        q: "Hur definieras expected utility (EU)?",
-        a: "EU = Σ p_i u(x_i), där p_i är sannolikheter och u(x_i) är nytta av utfallet. EU tar hänsyn till riskaversion via nyttokurvans form."
-      },
-      {
-        q: "Vad innebär riskaversion i termer av nyttokurvans form?",
-        a: "Nyttan är konkav i konsumtion/inkomst (u''(x) < 0). Extra pengar ger allt mindre marginalnytta, vilket gör att individen föredrar säkra utfall."
-      },
-      {
-        q: "Hur definieras certainty equivalent (CE) för ett lotteri?",
-        a: "Det säkra belopp som ger samma nytta som lotteriet. Om individen är riskavert är CE mindre än lotteriets EV."
-      },
-      {
-        q: "Vad är riskpremien och vad mäter den?",
-        a: "Riskpremien = EV − CE. Den mäter hur mycket individen är villig att offra i förväntad värde för att undvika risken."
-      },
-      {
-        q: "Vad är adverse selection på en försäkringsmarknad?",
-        a: "När individer med hög risk är mer benägna att köpa försäkring än låg-risk, vilket höjer premien och kan driva ut låg-risk-individer och i extremfall slå ut marknaden."
-      },
-      {
-        q: "Ge ett exempel på moral hazard i sjukvård.",
-        a: "En individ med full sjukförsäkring bryr sig mindre om kostnaden när hen väljer behandling och kan efterfråga dyrare vård än om hen betalade själv."
-      },
-      {
-        q: "Varför behövs självrisk och egenavgifter i försäkringar?",
-        a: "För att motverka moral hazard – när individen betalar en del av kostnaden blir hen mer kostnadsmedveten och överkonsumtionen minskar."
-      },
-      {
-        q: "Hur relaterar 'Market for Lemons' till försäkring?",
-        a: "Precis som med bilarna i Akerlofs exempel kan dold information om risktyper göra att bara 'dåliga risker' blir kvar på försäkringsmarknaden när premien stiger."
-      }
+    q: "Vad är skillnaden mellan risk och osäkerhet?",
+    a: "Risk: sannolikheter kända. Osäkerhet: sannolikheter okända, beslutsfattaren måste gissa eller använda subjektiva sannolikheter."
+  },
+  {
+    q: "Varför räcker inte Expected Value (EV) för att beskriva mänskligt beteende?",
+    a: "För att människor har riskpreferenser — de värderar säkerhet mer än risk. EV ignorerar utility."
+  },
+  {
+    q: "Vad fångar Expected Utility (EU) som EV inte gör?",
+    a: "EU tar hänsyn till att marginalnyttan av pengar minskar. En riskavert individ får lägre utility av osäkra utfall än av säkra med samma EV."
+  },
+  {
+    q: "Vad innebär riskaversion på en utilityfunktion?",
+    a: "Utilityfunktionen är konkav, u''(x) < 0. Varje extra krona ger mindre nytta → preferens för säkerhet."
+  },
+  {
+    q: "Vad är certainty equivalent (CE)?",
+    a: "Det säkra belopp som ger samma utility som lotteriet. Används för att kvantifiera riskaversion."
+  },
+  {
+    q: "Vad är risk premium?",
+    a: "Skillnaden mellan EV och CE. En riskavert individ är villig att 'betala bort' denna skillnad för att slippa risk."
+  },
+  {
+    q: "Hur vet man om en individ är riskneutral genom EU?",
+    a: "Utilityfunktionen är linjär, u(x) = ax + b. Då är CE = EV för alla lotterier."
+  },
+  {
+    q: "Vad är moral hazard i försäkringar?",
+    a: "När försäkring ändrar beteendet. Ex-ante: mindre prevention. Ex-post: dyrare/mer omfattande behandlingar när skadan väl inträffat."
+  },
+  {
+    q: "Vad är adverse selection och när uppstår det?",
+    a: "När hög-risk-kunder i större utsträckning än låg-risk-kunder köper försäkring. Uppstår när företaget inte kan observera risktypen."
+  },
+  {
+    q: "Hur relaterar Akerlofs 'Market for Lemons' till försäkring?",
+    a: "Informationsasymmetri gör att premien stiger när fler hög-risk-individer försäkrar sig, vilket kan göra att låg-risk lämnar marknaden och att bara 'dåliga risker' blir kvar."
+  },
+  {
+    q: "Varför behövs ett stort och homogent kollektiv för försäkring?",
+    a: "Law of large numbers kräver många oberoende risker. Då kan försäkringsbolaget uppskatta förväntade skador och sätta en stabil premie."
+  },
+  {
+    q: "Vad innebär en actuarially fair premium?",
+    a: "Premien är lika med förväntad skada. Försäkringen ger då ingen förväntad vinst för bolaget (ingen loading)."
+  },
+  {
+    q: "Vad innebär insurance loading?",
+    a: "Ett påslag över fair premium för att täcka administration, vinst och risk för oförväntade utfall."
+  },
+  {
+    q: "Vad är representativeness-bias i riskbedömning?",
+    a: "Människor tror att små sampel representerar helheten, vilket t.ex. leder till gambler’s fallacy: att tidigare utfall påverkar sannolikheter som egentligen är oberoende."
+  },
+  {
+    q: "Vad är certainty effect?",
+    a: "Människor övervärderar 100 % säkerhet jämfört med nästan säkerhet (t.ex. 99 %), mer än vad sannolikhetsskillnaden motiverar."
+  },
+  {
+    q: "Vad är loss aversion i riskbedömning?",
+    a: "Förluster upplevs starkare än vinster av samma storlek. Individer är ofta riskaverta i vinstdomänen men mer risksökande i förlustdomänen."
+  },
+  {
+    q: "Vad är framing i riskbeslut?",
+    a: "Hur information presenteras påverkar beslut, t.ex. om man beskriver ett program i termer av överlevnad (90 % överlever) eller dödlighet (10 % dör)."
+  },
+  {
+    q: "Varför är vissa risker oförsäkringsbara?",
+    a: "När riskerna är starkt korrelerade/systematiska (t.ex. stora naturkatastrofer), skadorna svåra att mäta eller när det finns risk för avsiktliga skador/fusk."
+  },
+  {
+    q: "Vilka verktyg kan motverka moral hazard?",
+    a: "Självrisk, medförsäkring (copay), maxersättning, bonus/malus-system, kontroll/monitoring och krav på prevention."
+  },
+  {
+    q: "Varför kan staten fungera bättre än privata försäkringar för sjukvård?",
+    a: "Staten kan göra försäkringen obligatorisk (motverka adverse selection), sprida risker över hela befolkningen och hantera systematiska risker samt fördela efter behov."
+  }
+      
     ]
   },
 
