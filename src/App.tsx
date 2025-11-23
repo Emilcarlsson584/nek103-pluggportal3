@@ -1104,44 +1104,199 @@ const BLOCKS: Block[] = [
     title: "Block 7 – Interventions & Empirical Methods",
     description: "Policyutvärdering, RCT, naturliga experiment, DiD och RDD.",
     concepts: [
-      {
-        term: "Randomized Controlled Trial (RCT)",
-        def: "Experiment där individer randomiseras till behandling eller kontroll för att identifiera kausala effekter."
-      },
-      {
-        term: "Naturligt experiment",
-        def: "Situation där en extern händelse skapar variation som liknar randomisering, t.ex policyförändring eller cutoff-regel."
-      },
-      {
-        term: "Difference-in-Differences (DiD)",
-        def: "Metod som jämför förändringen över tid i en behandlad grupp med förändringen i en kontrollgrupp."
-      },
-      {
-        term: "Regression Discontinuity Design (RDD)",
-        def: "Metod som utnyttjar en cutoff-regel och jämför observationer precis ovanför och under gränsen."
-      }
+     // 1. Varför empiriska metoder?
+    {
+      term: "Kausalitet vs korrelation",
+      def: "Korrelation visar samvariation men inte orsakssamband. Kausalitet kräver kontroll för confounders och omvänd kausalitet."
+    },
+    {
+      term: "Policyutvärdering",
+      def: "Att med data undersöka effekter av reformer och interventioner."
+    },
+
+    // 2. RCT
+    {
+      term: "Randomized Controlled Trial (RCT)",
+      def: "Experiment där individer randomiseras till behandling eller kontroll, vilket ger hög intern validitet."
+    },
+    {
+      term: "Intern validitet (RCT)",
+      def: "Hög – randomisering gör grupperna jämförbara."
+    },
+    {
+      term: "Extern validitet (RCT)",
+      def: "Ofta begränsad eftersom experiment görs i specifika miljöer/populationer."
+    },
+
+    // 3. Naturliga/quasi-experiment
+    {
+      term: "Naturligt experiment",
+      def: "Exogen policy/händelse som skapar variation liknande randomisering."
+    },
+    {
+      term: "Quasi-experiment",
+      def: "Design som använder institutionella regler (cutoffs, tidpunkter) för att skapa exogen variation."
+    },
+
+    // 4. Difference-in-Differences
+    {
+      term: "Difference-in-Differences (DiD)",
+      def: "Metod som jämför förändringen över tid i en behandlad grupp med förändringen i en kontrollgrupp."
+    },
+    {
+      term: "Parallel trends-antagandet",
+      def: "I frånvaro av behandling skulle grupperna följt samma trend över tid."
+    },
+
+    // 5. Regression Discontinuity Design
+    {
+      term: "Regression Discontinuity Design (RDD)",
+      def: "Metod som utnyttjar en cutoff – individer precis över/under gränsen antas vara jämförbara."
+    },
+    {
+      term: "Sharp RDD",
+      def: "Behandling bestäms strikt av cutoffs-regeln."
+    },
+    {
+      term: "Fuzzy RDD",
+      def: "Cutoff ändrar sannolikheten för behandling men inte perfekt – analyseras ofta med IV-teknik."
+    },
+
+    // 6. Instrumental Variables
+    {
+      term: "Instrumental Variables (IV)",
+      def: "Metod för att hantera endogenitet genom ett instrument som påverkar X men endast påverkar Y via X."
+    },
+    {
+      term: "Endogenitet",
+      def: "När en förklarande variabel är korrelerad med feltermen, t.ex utbildning och inneboende förmåga i lönemodeller."
+    },
+
+    // 7. Validitet
+    {
+      term: "Intern validitet",
+      def: "Hur väl en studie identifierar ett kausalt samband givet data och metod."
+    },
+    {
+      term: "Extern validitet",
+      def: "Hur väl resultaten generaliserar till andra miljöer, populationer och tidpunkter."
+    },
+
+    // 8. Policyinterventioner
+    {
+      term: "Policyinstrument",
+      def: "Skatter, subventioner, regleringar, förbud, kontantöverföringar, program, nudges, information etc."
+    },
+
+    // 9. Cost-effectiveness vs Cost-benefit
+    {
+      term: "Cost-effectiveness analysis",
+      def: "Jämför kostnad per enhet outcome (t.ex kostnad per räddat liv) utan att värdera outcome i pengar."
+    },
+    {
+      term: "Cost-benefit analysis",
+      def: "Monetariserar alla effekter och jämför med kostnader. Beslut baseras på nettonytta."
+    },
+
+    // 10. Behavioral interventions
+    {
+      term: "Nudges",
+      def: "Förändringar i valarkitektur som påverkar beteende utan att ändra monetära incitament."
+    },
+    {
+      term: "Behavioral interventions",
+      def: "Standardbrev, default-alternativ, social information, commitment devices, salience och framing."
+    },
+    {
+      term: "Regression to the mean",
+      def: "Extrema observationer tenderar att bli mindre extrema vid nästa mätning – viktigt att kontrollera för i utvärderingar."
+    },
+    {
+      term: "Before/after-studier",
+      def: "Studier utan kontrollgrupp. Känsliga för samtidiga förändringar och trendbrott."
+    }
     ],
     flashcards: [
-      {
-        q: "Vad är den stora styrkan med ett RCT?",
-        a: "Randomisering gör att behandlings- och kontrollgrupp är likartade i genomsnitt, vilket gör det möjligt att tolka skillnaden som en kausal effekt."
-      },
-      {
-        q: "Vad är ett naturligt experiment?",
-        a: "En verklig händelse eller policyförändring som skapar 'som-om-slumpmässig' variation i behandling, utan att forskaren kontrollerar den."
-      },
-      {
-        q: "Vad är huvudantagandet i Difference-in-Differences?",
-        a: "Att behandlad och kontrollgrupp skulle följt parallella trender över tid i frånvaro av behandlingen (parallel trends)."
-      },
-      {
-        q: "Hur fungerar Regression Discontinuity Design?",
-        a: "Man utnyttjar en cutoff-regel (t.ex betygsgräns) och jämför individer nära gränsen, där behandlingstilldelningen kan ses som nästan slumpmässig."
-      },
-      {
-        q: "Ge ett exempel på naturligt experiment i utbildningslitteraturen.",
-        a: "Angrist & Krueger utnyttjar födelsekvartal och obligatorisk skolplikt för att skapa exogen variation i utbildningslängd."
-      }
+ {
+      q: "Varför räcker inte korrelation för att dra slutsatser om kausalitet?",
+      a: "Korrelation fångar samvariation men inte om A orsakar B. Sambandet kan bero på omvänd kausalitet eller tredje variabler (confounders)."
+    },
+    {
+      q: "Vad är huvudstyrkan med RCT?",
+      a: "Randomisering säkerställer att behandlings- och kontrollgrupp är lika i genomsnitt, både i observerade och oobserverade dimensioner, vilket ger en ren kausal effekt."
+    },
+    {
+      q: "Vad är extern validitet och varför är den ofta låg i RCTs?",
+      a: "Extern validitet är generaliserbarhet. RCTs sker ofta i specifika miljöer med selekterade deltagare, vilket gör att resultaten inte alltid gäller för hela populationen."
+    },
+    {
+      q: "Vad är skillnaden mellan natural och quasi-experiment?",
+      a: "Natural experiments bygger på händelser utanför forskarens kontroll. Quasi-experiment använder policyregler (cutoffs, tidpunkter) som skapar exogen variation."
+    },
+    {
+      q: "Vad är parallel trends-antagandet i DiD?",
+      a: "Att behandlings- och kontrollgrupp skulle haft samma utveckling över tid om ingen intervention genomförts."
+    },
+    {
+      q: "Hur kan man testa parallel trends?",
+      a: "Genom att studera pre-trender i data. Om grupperna följer liknande utveckling före behandlingen är antagandet mer rimligt."
+    },
+    {
+      q: "Varför ger RDD hög intern validitet?",
+      a: "Individer precis över och precis under cutoff är nästan identiska, så skillnader kan tolkas som behandlingseffekter."
+    },
+    {
+      q: "Vad är skillnaden på sharp och fuzzy RDD?",
+      a: "I sharp RDD bestäms behandling exakt av cutoff. I fuzzy RDD ökar bara sannolikheten för behandling vid cutoff – ofta analyserat med IV-metoder."
+    },
+    {
+      q: "Hur vet man om ett instrument är starkt i IV?",
+      a: "Genom att F-statistiken i first stage är tillräckligt hög (ofta > 10). Ett svagt instrument ger stora bias."
+    },
+    {
+      q: "Vad innebär internal validity?",
+      a: "Att den skattade effekten verkligen speglar ett kausalt samband i den undersökta populationen, givet studiens design."
+    },
+    {
+      q: "Vad är ett exempel på endogenitet?",
+      a: "Utbildning och lön: individer med hög förmåga får både mer utbildning och högre lön, vilket ger upward bias om man inte kontrollerar."
+    },
+    {
+      q: "Varför är instrument viktiga i arbetsmarknadsekonomi?",
+      a: "För att centrala variabler som utbildning, erfarenhet och arbetstid ofta är endogena. Instrument behövs för att isolera kausala effekter."
+    },
+    {
+      q: "Vad menas med selection bias?",
+      a: "När deltagare i en behandling skiljer sig systematiskt från icke-deltagare, vilket ger snedvridna skattningar om man bara jämför grupperna."
+    },
+    {
+      q: "Vad är treatment effect heterogeneity?",
+      a: "Att olika individer eller grupper påverkas olika mycket av samma intervention, t.ex starkare effekt för låginkomsttagare."
+    },
+    {
+      q: "Varför är information en billig intervention?",
+      a: "För att många beslut tas på basis av felaktig eller ofullständig information. Att korrigera information kostar lite men kan ha stor effekt."
+    },
+    {
+      q: "Vad är skillnaden mellan nudges och skatter?",
+      a: "Nudges ändrar beslutskontext (valarkitektur) utan att ändra monetära incitament, medan skatter direkt ändrar relativa priser."
+    },
+    {
+      q: "Vad är regression to the mean?",
+      a: "Fenomenet att extremt höga eller låga observationer ofta följs av mer genomsnittliga värden vid nästa mätning."
+    },
+    {
+      q: "Varför måste man vara försiktig med before/after-studier?",
+      a: "Eftersom de saknar kontrollgrupp kan andra samtidiga förändringar ligga bakom observerade skillnader över tid."
+    },
+    {
+      q: "Vad är ett exempel på ett naturligt experiment i kursen?",
+      a: "Angrist & Krueger: födelsekvartal påverkar skolstart och därmed utbildningslängd, vilket används som instrument för utbildning i lönemodeller."
+    },
+    {
+      q: "När är RDD att föredra framför DiD?",
+      a: "När en tydlig cutoff i en regel skapar lokal exogen variation och vi är intresserade av effekten just runt denna tröskel."
+    }
     ]
   },
 
