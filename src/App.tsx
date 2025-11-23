@@ -212,48 +212,89 @@ const BLOCKS: Block[] = [
   { term: "Marshmallow-experimentet", def: "Visar variation i självkontroll och förekomst av tidsinkonsistens." },
   { term: "Financial literacy", def: "Kunskap om ränta, lån, sparande — låg nivå → sämre beslut över tid." }
 ],
-    flashcards: [
-      {
-        q: "Vad är present value (PV) och varför är det viktigt i intertemporala beslut?",
-        a: "PV är nuvärdet av en framtida betalning. Det används för att kunna jämföra beslut som inträffar vid olika tidpunkter på en gemensam skala."
-      },
-      {
-        q: "Hur påverkar en högre realränta valet mellan konsumtion idag och i framtiden?",
-        a: "Framtida konsumtion blir relativt billigare, vilket via substitutionseffekten tenderar att öka sparandet och minska nutida konsumtion."
-      },
-      {
-        q: "Vad innebär att MRS = 1 + r vid optimum i tvåperiodsmodellen?",
-        a: "Att individens villighet att byta bort konsumtion idag mot konsumtion i framtiden exakt matchar marknadens bytesförhållande via räntan."
-      },
-      {
-        q: "Hur ser exponential discounting ut i formel?",
-        a: "U = Σ δ^t u(c_t), med 0 < δ < 1. Diskonteringen är densamma mellan alla perioder, vilket ger tidskonsistenta preferenser."
-      },
-      {
-        q: "Vad tillför beta–delta-modellen jämfört med exponential discounting?",
-        a: "Den lägger till en extra parameter β < 1 som sänker vikten på all framtida nytta relativt nuet, vilket fångar present bias och tidsinkonsistens."
-      },
-      {
-        q: "Vad menas med present bias i praktiken?",
-        a: "Att man upprepat väljer omedelbar belöning (t.ex skrolla, konsumera) framför långsiktiga mål (spara, plugga), trots att man senare ångrar sig."
-      },
-      {
-        q: "Hur beter sig en naiv individ med present bias över tid?",
-        a: "Den skjuter upp viktiga saker eftersom den varje gång tror att 'nästa gång' kommer den ta det långsiktiga beslutet – men gör det aldrig."
-      },
-      {
-        q: "Hur beter sig en sofistikerad individ med present bias?",
-        a: "Den inser att framtida jag kommer frestas att bryta planen och söker därför bindande lösningar, t.ex tidslåsta sparkonton eller hårda deadlines."
-      },
-      {
-        q: "Ge ett exempel på ett commitment device i vardagen.",
-        a: "Ett tidsbundet sparkonto där du inte kan ta ut pengarna utan avgift, eller att skriva upp sig på en kurs med deadline och avgift vid utebliven närvaro."
-      },
-      {
-        q: "Vad innebär det att preferenser är tidskonsistenta?",
-        a: "Att det beslut du tycker är bäst idag för framtida perioder är samma som du faktiskt kommer genomföra när framtiden väl inträffar."
-      }
-    ]
+   flashcards: [
+  {
+    q: "Vad är present value och varför används det?",
+    a: "PV är värdet idag av en framtida summa. Det används för att jämföra beslut som sker vid olika tidpunkter på en gemensam värdeskala."
+  },
+  {
+    q: "Hur påverkar räntan den intertemporala budgetlinjen?",
+    a: "Högre ränta gör framtida konsumtion billigare relativt nutida konsumtion → budgetlinjen roterar → ökat sparande via substitutionseffekt."
+  },
+  {
+    q: "Vad innebär MRS = 1 + r?",
+    a: "Vid optimum är individen villig att byta 1 enhet konsumtion idag mot (1+r) enheter i framtiden → matchning med marknadens bytesförhållande."
+  },
+  {
+    q: "Vad är skillnaden mellan en patient och en impatient individ?",
+    a: "Patient: värderar framtiden högt, brant IC (sparar mer). Impatient: vill konsumera idag, flack IC (hög diskontering)."
+  },
+  {
+    q: "Hur fungerar substitutionseffekten när räntan ökar?",
+    a: "Framtida konsumtion blir relativt billigare → individen sparar mer och skjuter konsumtion till framtiden."
+  },
+  {
+    q: "Hur fungerar inkomsteffekten när räntan ökar?",
+    a: "Individen får högre avkastning på sparande → blir rikare → ökar både konsumtion idag och i framtiden."
+  },
+  {
+    q: "Vilket centralt antagande bryts av present bias?",
+    a: "Stationary instantaneous utility – egentligen förändras preferenser beroende på hur nära i tid en belöning är."
+  },
+  {
+    q: "Vad fångar delta (δ) i beta-delta-modellen?",
+    a: "Den långsiktiga diskonteringsfaktorn som anger hur starkt framtida nytta väger — 'vanlig' diskontering."
+  },
+  {
+    q: "Vad fångar beta (β) i beta-delta-modellen?",
+    a: "Den extra vikt som ges åt nuet. Om β < 1 → present bias, dvs nuet prioriteras oproportionerligt mycket."
+  },
+  {
+    q: "Hur beter sig en 'naiv' individ med present bias?",
+    a: "Tror att framtida jag inte kommer vara impulsiv → skjuter upp sparande, misslyckas med mål, tar dyra lån."
+  },
+  {
+    q: "Hur beter sig en 'sophisticated' individ?",
+    a: "Inser sina självkontrollproblem och söker därför commitment devices (låsta konton, deadlines, förskottsbetalning)."
+  },
+  {
+    q: "Vad är ett commitment device?",
+    a: "En självvald begränsning för att säkerställa att framtida jag följer dagens planer — t.ex fasträntesparande, deadlines, gymkort."
+  },
+  {
+    q: "Hur förklarar beta-delta-modellen prokrastinering?",
+    a: "När β < 1 övervärderas nuet → även om framtida nytta är större skjuter man upp viktiga aktiviteter."
+  },
+  {
+    q: "Vad visar marshmallow-experimentet om tidskonsistens?",
+    a: "Att individer varierar i självkontroll. Barn som kunde vänta hade bättre utbildnings-, inkomst- och hälsoutfall senare."
+  },
+  {
+    q: "Vilken typ av policy passar individer med present bias bäst?",
+    a: "Commitment-lösningar: förvalda sparalternativ, tidslåsta konton, deadlines, förskottsbetalning."
+  },
+  {
+    q: "Hur påverkas sparande av låg finansiell kunskap?",
+    a: "Låg financial literacy → bristande räntesförståelse → man sparar för lite och lånar för mycket/dyrt."
+  },
+  {
+    q: "Vad är exponential discounting?",
+    a: "Den klassiska modellen där diskonteringen är konstant över tid och preferenser är tidskonsistenta."
+  },
+  {
+    q: "Varför bryter beta-delta-modellen tidkonsistens?",
+    a: "Första periodens val viktas annorlunda än senare (β-parameter) → framtida jag ändrar planerna."
+  },
+  {
+    q: "Hur kan företag utnyttja present bias?",
+    a: "Genom produkter där nutida belöningar är stora men framtida kostnader dolda: prenumerationer, kreditkort, BNPL, gymkort."
+  },
+  {
+    q: "Vad händer med optimum om räntan blir negativ?",
+    a: "Konsumtion idag blir mer värdefull än framtida konsumtion → minskat sparande och större konsumtion nu."
+  }
+]
+
   },
 
   // ------- BLOCK 3 -------
