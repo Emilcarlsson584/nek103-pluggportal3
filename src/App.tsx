@@ -632,72 +632,296 @@ const BLOCKS: Block[] = [
     description:
       "Hälsa som kapital, hälsoförsäkringar, RAND-experimentet och prioriteringar.",
     concepts: [
-      {
-        term: "Grossman-modellen",
-        def: "Individen har ett hälsokapital som både ger direkt nytta och påverkar möjligheten att arbeta och konsumera. Hälsokapitalet deprecieras och kan ökas genom investeringar."
-      },
-      {
-        term: "Full coverage",
-        def: "Försäkring där individen inte betalar något själv vid vård (0% egenavgift)."
-      },
-      {
-        term: "Copayment",
-        def: "Individen betalar en viss andel av kostnaden själv vid varje vårdtillfälle, t.ex 25%."
-      },
-      {
-        term: "Deductible (självrisk)",
-        def: "Belopp individen måste betala ur egen ficka innan försäkringen börjar ersätta kostnader."
-      },
-      {
-        term: "RAND Health Insurance Experiment",
-        def: "Stort randomiserat experiment som visar att högre egenavgifter minskar vårdkonsumtion men har liten effekt på hälsa för de flesta grupper."
-      },
-      {
-        term: "Supplier-induced demand",
-        def: "När läkare påverkar patientens vårdkonsumtion mer än vad patientens egna preferenser och behov skulle motivera."
-      }
+       // 1. Varför hälsa skiljer sig från andra varor
+    {
+      term: "Need (behov)",
+      def: "Hälsa anses vara en nödvändighet snarare än en vanlig konsumtionsvara."
+    },
+    {
+      term: "Right (rättighet)",
+      def: "I många länder anses hälsa vara en rättighet, vilket påverkar hur vård finansieras och tillhandahålls."
+    },
+    {
+      term: "Positive externalities",
+      def: "När en individ tar en åtgärd (t.ex. vaccination) som skapar fördelar för andra."
+    },
+    {
+      term: "Negative externalities",
+      def: "När en handling (t.ex. antibiotikaanvändning) skapar negativa effekter för andra."
+    },
+    {
+      term: "Asymmetric information",
+      def: "Patient-läkare, patient-försäkringsbolag och försäkringsbolag-vårdgivare har olika information."
+    },
+    {
+      term: "Irreversibility",
+      def: "Dålig hälsa kan vara svår att återställa, vilket gör prevention extra värdefull."
+    },
+
+    // 2. Demand for health care
+    {
+      term: "Need vs want",
+      def: "Need = medicinskt behov. Want = efterfrågan även utan behov."
+    },
+    {
+      term: "Grossman-modellen",
+      def: "Hälsa behandlas som ett kapital som deprecieras över tid och kan ökas via investeringar som vård, kost och motion."
+    },
+    {
+      term: "Depreciation rate",
+      def: "Hastigheten som hälsokapital slits — högre vid äldre ålder."
+    },
+    {
+      term: "Health as consumption good",
+      def: "Hälsa ger direkt nytta genom välmående."
+    },
+    {
+      term: "Health as investment good",
+      def: "Hälsa ökar produktivitet och framtida inkomster."
+
+    },
+
+    // 3. Beteende & hälsa
+    {
+      term: "Obesity paradox",
+      def: "Modern miljö sänker kostnad för snacking, snabbmat och gör träning dyrare tidsmässigt."
+    },
+    {
+      term: "Crowding out (Mellström & Johannesson)",
+      def: "Monetära incitament kan minska altruistiskt beteende, t.ex bloddonationer."
+    },
+    {
+      term: "Gym membership bias",
+      def: "Folk överskattar sitt framtida tränande pga present bias."
+    },
+    {
+      term: "Charness & Gneezy",
+      def: "Ekonomiska incitament kan skapa långsiktiga vanor om de är tillräckligt starka."
+    },
+
+    // 4. Health insurance
+    {
+      term: "Full coverage",
+      def: "0% egenkostnad; individen betalar inget för vård."
+    },
+    {
+      term: "Copayment",
+      def: "Procentuell del individen betalar av kostnaden per besök."
+    },
+    {
+      term: "Deductible (självrisk)",
+      def: "Belopp som individen måste betala själv innan försäkringen träder in."
+    },
+    {
+      term: "Maximum / stop-loss",
+      def: "Maximalt belopp individen kan behöva betala under ett år."
+    },
+
+    // 5. Informationsasymmetrier
+    {
+      term: "Adverse selection",
+      def: "Hög-risk-individer köper försäkring i högre grad → premiehöjningar → risk för marknadskollaps."
+    },
+    {
+      term: "Community rating",
+      def: "Alla betalar samma premie, kräver ofta obligatorisk anslutning."
+    },
+    {
+      term: "Cream skimming",
+      def: "Försäkringsbolag försöker locka låg-risk-individer."
+    },
+    {
+      term: "Moral hazard (ex ante)",
+      def: "Mindre prevention eftersom kostnaderna täcks av försäkring."
+    },
+    {
+      term: "Moral hazard (ex post)",
+      def: "Överdriven konsumtion av vård pga låg egenkostnad."
+    },
+
+    // 6. RAND-experimentet
+    {
+      term: "RAND HIE",
+      def: "Stort RCT som randomiserade egenavgifter. Vård är oelastisk, mer egenavgift → mindre konsumtion utan sämre hälsa."
+    },
+
+    // 7. Supply side
+    {
+      term: "Supplier-induced demand",
+      def: "Läkare rekommenderar mer vård än nödvändigt pga informationsasymmetri."
+    },
+    {
+      term: "Principal-agent-problem",
+      def: "Patienten (principal) litar på läkaren (agent) men deras intressen kan skilja sig."
+    },
+    {
+      term: "Fee-for-service",
+      def: "Betalning per åtgärd → risk för överbehandling."
+    },
+    {
+      term: "Salary",
+      def: "Läkaren får fast lön → inga volymincitament."
+    },
+    {
+      term: "Capitation",
+      def: "Fast ersättning per patient → incitament att undvika dyr vård."
+    },
+    {
+      term: "DRG",
+      def: "Ersättning per diagnos. Motverkar extrem överbehandling och sätter kostnadstak."
+    },
+
+    // 8. Inequality in health care
+    {
+      term: "Equality of access",
+      def: "Alla har tillgång till vård."
+    },
+    {
+      term: "Equality of use",
+      def: "Alla använder lika mycket vård — inte alltid rättvist."
+    },
+    {
+      term: "Equality of health",
+      def: "Alla ska ha lika hälsoutfall — mer ambitiöst."
+    },
+    {
+      term: "Need standardization",
+      def: "Justering av vårdkonsumtion efter medicinskt behov."
+    },
+    {
+      term: "Concentration curve",
+      def: "Visar hur vård fördelas över inkomstgrupper liknande Lorenz-kurvan."
+    },
+    {
+      term: "Concentration index",
+      def: "Motsvarighet till Gini men för vårdkonsumtion."
+    },
+
+    // 9. Priority setting
+    {
+      term: "Människovärdesprincipen",
+      def: "Alla människor har lika värde oberoende av egenskaper."
+    },
+    {
+      term: "Behovsprincipen",
+      def: "De med störst behov ska prioriteras först."
+    },
+    {
+      term: "Kostnadseffektivitetsprincipen",
+      def: "Resurser ska ge största möjliga hälsovinst per krona."
+    },
+
+    // 10. Utmaningar framåt
+    {
+      term: "Sisyphus syndrome",
+      def: "Ny teknik möjliggör behandling av fler tillstånd → ökad efterfrågan → stigande kostnader."
+    },
+    {
+      term: "Global health workforce mobility",
+      def: "Konkurrens om vårdpersonal mellan länder skapar brist."
+    }
     ],
     flashcards: [
-      {
-        q: "Hur ser hälsa ut i Grossman-modellen?",
-        a: "Som ett kapital: individen föds med en viss nivå, som deprecieras med ålder men kan förstärkas genom investeringar som vård, kost och motion."
-      },
-      {
-        q: "Varför ökar vårdkonsumtion vanligtvis med ålder?",
-        a: "För att hälsokapitalets depreciation ökar med åldern, vilket skapar fler sjukdomstillstånd och ett större vårdbehov."
-      },
-      {
-        q: "Vad visar RAND-experimentet om priselasticitet för vård?",
-        a: "Att efterfrågan på vård är oelastisk: högre egenavgifter minskar konsumtionen, men inte dramatiskt."
-      },
-      {
-        q: "Vilken slutsats drogs om hälsa i RAND-experimentet?",
-        a: "Att högre egenavgifter minskade vårdkonsumtionen utan någon tydlig negativ effekt på hälsan för de flesta deltagare."
-      },
-      {
-        q: "Vad är skillnaden mellan adverse selection och moral hazard i hälsoförsäkring?",
-        a: "Adverse selection handlar om vem som väljer att försäkra sig (hög/låg risk), moral hazard om hur de försäkrade beter sig efter att de fått försäkring."
-      },
-      {
-        q: "Vad är supplier-induced demand (SID)?",
-        a: "Att vårdgivare, pga informationsövertag, kan få patienten att konsumera mer (eller dyrare) vård än vad patienten själv skulle valt med full information."
-      },
-      {
-        q: "Hur påverkar fee-for-service incitamenten för läkare?",
-        a: "Det ger incitament att öka antalet åtgärder och besök, vilket riskerar överbehandling."
-      },
-      {
-        q: "Vad är huvudmotivet för offentligt finansierad hälso- och sjukvård?",
-        a: "Att säkerställa tillgång efter behov snarare än betalningsförmåga, samt hantera adverse selection genom obligatorisk medverkan."
-      },
-      {
-        q: "Vad innebär equality of access i sjukvården?",
-        a: "Att alla, oavsett inkomst eller bakgrund, har likvärdig tillgång till vård när de behöver den."
-      },
-      {
-        q: "Vad menas med prioriteringsprinciperna i svensk hälso- och sjukvård?",
-        a: "Människovärdesprincipen, behovsprincipen och kostnadseffektivitetsprincipen styr vilken vård som ska ges först och hur resurser fördelas."
-      }
+    {
+      q: "Varför fungerar inte sjukvård som en vanlig marknad?",
+      a: "Pga asymmetrisk information, externa effekter, osäkerhet, och att hälsa är en need snarare än en want."
+    },
+    {
+      q: "Vad är skillnaden mellan need och want i vård?",
+      a: "Need = medicinskt nödvändigt. Want = efterfrågad vård trots att behov saknas."
+    },
+    {
+      q: "Vad är kärnan i Grossman-modellen?",
+      a: "Hälsa är både konsumtionsvara och investeringsvara. Individer väljer investeringar i hälsokapital som deprecieras med tiden."
+    },
+    {
+      q: "Varför deprecieras hälsokapital snabbare vid hög ålder?",
+      a: "Biologiska processer gör att kroppen försämras snabbare och kräver större hälsovårdsinsatser."
+    },
+    {
+      q: "Hur påverkar inkomster hälsa enligt Grossman?",
+      a: "Högre inkomst gör det billigare att investera i hälsa och leder normalt till högre hälsostock."
+    },
+    {
+      q: "Varför är copayments viktiga?",
+      a: "De minskar moral hazard genom att individen betalar en del av kostnaden."
+    },
+    {
+      q: "Vad visar RAND-experimentet om priselasticitet?",
+      a: "Elasticitet −0.1 till −0.2 → vård är oelastisk. Konsumtionen minskar med högre självrisk, men hälsan påverkas knappt."
+    },
+    {
+      q: "Hur påverkade hög självrisk hälsa i RAND?",
+      a: "Nästan ingen påverkan — individer minskade främst onödig vård, inte nödvändig vård."
+    },
+    {
+      q: "Vad är adverse selection i sjukförsäkring?",
+      a: "Hög-risk-individer köper försäkring i större grad → premiehöjningar → risk för marknadskollaps."
+    },
+    {
+      q: "Vad är cream skimming?",
+      a: "Försäkringsbolag försöker attrahera låg-risk-individer för att sänka sina kostnader."
+    },
+    {
+      q: "Vad är ex ante moral hazard?",
+      a: "Mindre prevention eftersom försäkring minskar kostnaden av ohälsa."
+    },
+    {
+      q: "Vad är ex post moral hazard?",
+      a: "Överdriven konsumtion av vård eftersom individen inte betalar hela kostnaden själv."
+    },
+    {
+      q: "Varför är fee-for-service problematiskt?",
+      a: "Det ger incitament för överbehandling."
+    },
+    {
+      q: "Vad är capitation?",
+      a: "Fast ersättning per patient. Skapar incitament att undvika onödig vård men risk för underbehandling."
+    },
+    {
+      q: "Vad innebär supplier-induced demand?",
+      a: "Läkaren rekommenderar mer behandling än nödvändigt pga informationsövertag."
+    },
+    {
+      q: "Vad är concentration index?",
+      a: "Ett mått på hur vård är fördelad över inkomstgrupper. Positiv CI → rika konsumerar mer vård."
+    },
+    {
+      q: "Vad är need standardization?",
+      a: "Justering av vårdkonsumtion efter medicinskt behov för att identifiera faktisk ojämlikhet."
+    },
+    {
+      q: "Vad innebär behovsprincipen?",
+      a: "De som har störst medicinskt behov ska prioriteras först."
+    },
+    {
+      q: "Vad är Sisyphus syndrome?",
+      a: "Teknologiska framsteg ökar behandlingsmöjligheter → efterfrågan på vård stiger → kostnaderna ökar."
+    },
+    {
+      q: "Hur relaterar present bias till gymmedlemskap?",
+      a: "Individer överskattar framtida träning → köper dyra abonnemang → tränar mindre än planerat."
+    },
+    {
+      q: "Vad är argumentet för offentlig finansiering av vård?",
+      a: "Motverkar adverse selection, möjliggör riskdelning och garanterar att vård ges efter behov."
+    },
+    {
+      q: "Hur fungerar monetary incentives i hälsa enligt Charness & Gneezy?",
+      a: "Starka incitament kan skapa långsiktiga vanor (habit formation)."
+    },
+    {
+      q: "Hur påverkar externa effekter vårdpolitiken?",
+      a: "Vaccinationer bör subventioneras; antibiotika bör regleras för att minska resistens."
+    },
+    {
+      q: "Vad är principal-agent-problem i vården?",
+      a: "Läkaren (agenten) kan ha andra incitament än patienten (principal)."
+    },
+    {
+      q: "Vad innebär equality of access?",
+      a: "Alla ska ha lika möjlighet att få vård — centralt i offentliga system."
+    }
     ]
   },
 
