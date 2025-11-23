@@ -1307,68 +1307,227 @@ const BLOCKS: Block[] = [
     description:
       "Arbetsmarknad, minimilön, könslönegap, humankapital och avkastning på utbildning.",
     concepts: [
-      {
-        term: "Humankapital",
-        def: "Individens produktiva egenskaper: utbildning, erfarenhet, färdigheter, hälsa och socioemotionella förmågor."
-      },
-      {
-        term: "Mincer-ekvationen",
-        def: "Standardmodellen för lön: ln(wage) = α + β·schooling + γ·exp + δ·exp², där β är avkastningen per skolår."
-      },
-      {
-        term: "Ability bias",
-        def: "Snedvridning i skattningar av avkastning på utbildning när högförmågaindivider både utbildar sig mer och tjänar mer."
-      },
-      {
-        term: "Motherhood penalty",
-        def: "Långsiktig löne- och inkomstförlust för kvinnor efter att de fått barn, som inte syns hos män."
-      },
-      {
-        term: "Minimum wage (minimilön)",
-        def: "Lagstadgad lägstalön per timme eller månad som inte får underskridas."
-      }
+    // A. Labour Market Basics
+    {
+      term: "Labour supply",
+      def: "Bestäms av befolkning, arbetskraftsdeltagande, utbildning, normer, migration, pensioner och individs preferenser."
+    },
+    {
+      term: "Labour demand",
+      def: "Bestäms av efterfrågan på varor och tjänster, kapital, teknologi, löner och relativkostnader mellan arbete och maskiner."
+    },
+
+    // B. Minimum wage
+    {
+      term: "Minimum wage (standardmodellen)",
+      def: "Prisgolv som ligger över marknadsjämvikten → minskad efterfrågan på arbete → arbetslöshet."
+    },
+    {
+      term: "Card & Krueger (1994)",
+      def: "Naturligt experiment där NJ höjde minimilönen men PA inte gjorde det. Fast-food-sysselsättningen ökade i NJ."
+    },
+
+    // C. Gender wage gap
+    {
+      term: "Ojusterat lönegap",
+      def: "Rå skillnad i lön mellan män och kvinnor (≈10 % i Sverige)."
+    },
+    {
+      term: "Justerat lönegap",
+      def: "Lönegap efter kontroll för utbildning, erfarenhet, sektor, yrke, arbetstid → ≈4–5 %."
+    },
+    {
+      term: "Motherhood penalty",
+      def: "Långvarig negativ effekt på kvinnors inkomster efter barn; fäder påverkas knappt."
+    },
+
+    // D. Human Capital Theory
+    {
+      term: "Human capital",
+      def: "Individens produktiva egenskaper: utbildning, erfarenhet, hälsa, kognitiva och sociala skills."
+    },
+    {
+      term: "Human capital production",
+      def: "Investeringar i tidig ålder ger hög avkastning — 'skills builds skills' (Heckman)."
+    },
+
+    // E. Schooling decision
+    {
+      term: "Present value (education decision)",
+      def: "Individen investerar i utbildning om PV(benefits) > PV(costs)."
+    },
+    {
+      term: "Cost of schooling",
+      def: "Direkta kostnader + alternativkostnader (förlorad lön) + ansträngning."
+    },
+
+    // F. Mincer Equation
+    {
+      term: "Mincer-ekvationen",
+      def: "ln(wage) = α + β·schooling + γ·experience + δ·experience²."
+    },
+    {
+      term: "β (Mincer)",
+      def: "Genomsnittlig procentuell löneökning per extra skolår (≈7–10 %)."
+    },
+
+    // G. Omitted Variable Bias
+    {
+      term: "Omitted variable bias (OVB)",
+      def: "Bias när en variabel påverkar både X och Y men saknas i regressionen."
+    },
+    {
+      term: "Ability bias",
+      def: "Specifik OVB: individer med hög förmåga studerar längre och får högre löner."
+    },
+
+    // I. Natural experiments
+    {
+      term: "Angrist & Krueger (1991)",
+      def: "Födelsekvartal påverkar skolstart → exogen variation i utbildning."
+    },
+    {
+      term: "Zimmerman (2014)",
+      def: "Cutoff i universitetsantagning → RDD → local average treatment effect."
+    },
+
+    // J. Randomized experiments
+    {
+      term: "Randomisering",
+      def: "Ger grupper identiska förväntade egenskaper → möjliggör kausal tolkning."
+    },
+
+    // K. Returns to education
+    {
+      term: "Returns to education",
+      def: "Typiskt 7–10% per år utbildning; högre för högskola än gymnasium."
+    },
+
+    // L. Early investments & dynamic complementarity
+    {
+      term: "Dynamic complementarity",
+      def: "Tidiga skills gör senare investeringar mer effektiva — 'skills builds skills'."
+    },
+
+    // M. Human capital interventions
+    {
+      term: "Human capital interventions",
+      def: "Mentoring, cash transfers, deworming, teacher training, class size, preschool programs."
+    },
+
+    // N. Signaling vs human capital
+    {
+      term: "Signaling hypothesis",
+      def: "Utbildning signalerar förmåga snarare än ökar produktivitet (Spence)."
+    },
+
+    // O. Labour market institutions
+    {
+      term: "Labour market institutions",
+      def: "Fackförbund, kollektivavtal, arbetslöshetsförsäkring, skatter, matchningsmekanismer."
+    }
     ],
     flashcards: [
-      {
-        q: "Vad menas med humankapital?",
-        a: "Alla egenskaper hos individen som påverkar produktiviteten: utbildning, erfarenhet, kunskap, färdigheter, hälsa och sociala förmågor."
-      },
-      {
-        q: "Hur tolkas β i Mincer-ekvationen?",
-        a: "Som den genomsnittliga procentuella löneökningen av ett extra år utbildning, givet erfarenhet."
-      },
-      {
-        q: "Varför ger naiva löneregressioner ofta för hög skattad avkastning på utbildning?",
-        a: "För att de inte kontrollerar för ability – högförmågaindivider utbildar sig oftare och har högre lön, vilket leder till ability bias."
-      },
-      {
-        q: "Vad är motherhood penalty?",
-        a: "En bestående nedgång i kvinnors inkomster efter barn, ofta via minskad arbetstid, karriäravbrott och sämre löneutveckling."
-      },
-      {
-        q: "Hur skiljer sig signaling från humankapitalteori?",
-        a: "Signaling hävdar att utbildning främst signalerar förmåga till arbetsgivare, medan humankapitalteori säger att utbildning ökar produktiviteten."
-      },
-      {
-        q: "Vad visade Card & Krueger om minimilönens effekter?",
-        a: "Att en höjd minimilön i New Jersey inte minskade sysselsättningen i fast-food, utan snarare ökade den jämfört med Pennsylvania."
-      },
-      {
-        q: "Varför kan minimilön vara förenlig med högre sysselsättning i vissa modeller?",
-        a: "I monopsoni-liknande arbetsmarknader kan en högre minimilön öka både lön och antal anställda."
-      },
-      {
-        q: "Vad är ett naturligt experiment kring utbildning som används i litteraturen?",
-        a: "Angrist & Krueger använder födelsekvartal och skolplikt för att skapa exogen variation i utbildning och skatta kausala effekter på lön."
-      },
-      {
-        q: "Varför betonar Heckman vikten av tidiga investeringar i humankapital?",
-        a: "För att 'skills begets skills': tidiga insatser gör senare utbildning mer effektiv och har därför högre avkastning."
-      },
-      {
-        q: "Vad är ability bias och hur påverkar den vår tolkning av utbildningsavkastning?",
-        a: "Ability bias innebär att observerade skillnader i lön mellan utbildningsnivåer delvis beror på medfödda eller tidiga förutsättningar, inte bara utbildningen i sig."
-      }
+    {
+      q: "Vad bestämmer arbetsutbudet på makronivå?",
+      a: "Befolkning, deltagandegrad, utbildning, normer, migration, pension och individers preferenser."
+    },
+    {
+      q: "Varför förutspår standardmodellen att minimilön orsakar arbetslöshet?",
+      a: "Lönen sätts över jämviktsnivån → arbetsgivare efterfrågar mindre arbete än arbetare vill erbjuda."
+    },
+    {
+      q: "Varför fann Card & Krueger ingen minskning i sysselsättning?",
+      a: "Fast-food-marknaden är monopsoniliknande → högre lön kan öka både sysselsättning och produktivitet."
+    },
+    {
+      q: "Vad innebär 'motherhood penalty'?",
+      a: "En långvarig inkomstminskning hos kvinnor efter barn pga karriäravbrott, deltidsarbete och normer."
+    },
+    {
+      q: "Varför påverkas fäder inte lika mycket av barnafödande?",
+      a: "Normer och arbetsdelning gör att kvinnor tar mer ansvar för hemarbete och föräldraledighet."
+    },
+    {
+      q: "Vad är human capital?",
+      a: "Produktiva förmågor hos individen: utbildning, erfarenhet, hälsa, kognitiva och icke-kognitiva skills."
+    },
+    {
+      q: "Hur skiljer sig human capital från fysiskt kapital?",
+      a: "Det sitter i individer, kan inte användas som säkerhet och deprecierar biologiskt."
+    },
+    {
+      q: "Vilka är utbildningens tre kostnadstyper?",
+      a: "Direkta kostnader, alternativkostnader och ansträngning (psykologisk kostnad)."
+    },
+    {
+      q: "Vad fångar β i Mincer-modellen?",
+      a: "Lönens procentuella ökning per extra skolår."
+    },
+    {
+      q: "Varför finns experience² i Mincer-ekvationen?",
+      a: "För att löneavkastningen av erfarenhet avtar över tid."
+    },
+    {
+      q: "Vad är ability bias?",
+      a: "Högförmågaindivider studerar längre och tjänar mer → överskattar returns to education i OLS."
+    },
+    {
+      q: "Hur kan man minska ability bias?",
+      a: "IV, natural experiments, twin studies eller rikliga kontroller."
+    },
+    {
+      q: "Vad är ett naturligt experiment?",
+      a: "En extern händelse som skapar exogen variation liknande randomisering."
+    },
+    {
+      q: "Hur använder Angrist & Krueger födelsekvartal som instrument?",
+      a: "Födelsemånad påverkar skolstart och därmed utbildningslängd exogent."
+    },
+    {
+      q: "Vad är RDD?",
+      a: "Metod där individer nära ett cutoff antas vara identiska → lokal kausal effekt."
+    },
+    {
+      q: "Varför är RDD lokalt?",
+      a: "Effekten gäller bara individer nära cutoff, inte hela populationen."
+    },
+    {
+      q: "Vad är internal validity?",
+      a: "Hur väl en studie identifierar ett kausalt samband i sin studiepopulation."
+    },
+    {
+      q: "Vad är external validity?",
+      a: "Hur väl resultaten kan generaliseras till andra grupper, platser och tider."
+    },
+    {
+      q: "Vad säger signaling theory om utbildning?",
+      a: "Utbildning fungerar främst som signal om förmåga, inte som produktivitetsökning."
+    },
+    {
+      q: "Hur skiljer man mellan signaling och human capital?",
+      a: "Studera effekter av incomplete education — om effekterna finns endast vid examen tyder det på signaling."
+    },
+    {
+      q: "Varför är early childhood interventions särskilt effektiva?",
+      a: "Tidiga insatser skapar skills som gör senare investeringar mer effektiva (dynamic complementarity)."
+    },
+    {
+      q: "Vad visar Heckman-kurvan?",
+      a: "Avkastningen är högst för investeringar i tidig barndom och minskar med ålder."
+    },
+    {
+      q: "Vad innebär assortative mating för ojämlikhet?",
+      a: "Högutbildade gifter sig med högutbildade → inkomster koncentreras → ökad ojämlikhet."
+    },
+    {
+      q: "Varför stiger global avkastning på utbildning?",
+      a: "Teknologisk utveckling och globalisering ökar efterfrågan på högkvalificerad arbetskraft."
+    },
+    {
+      q: "Hur påverkar fackföreningar löner?",
+      a: "De höjer löner lokalt, stärker förhandlingsposition och påverkar lönegolvet."
+    }
     ]
   }
 ];
