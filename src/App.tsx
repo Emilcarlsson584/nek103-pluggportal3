@@ -304,84 +304,131 @@ const BLOCKS: Block[] = [
     description:
       "Paretoeffektivitet, sociala välfärdsfunktioner, Okun’s leaky bucket och rättviseprinciper.",
     concepts: [
-      {
-        term: "Paretoeffektivitet",
-        def: "En fördelning där ingen kan få det bättre utan att någon annan får det sämre. Säger inget om rättvisa."
-      },
-      {
-        term: "Paretoförbättring",
-        def: "En förändring som gör någon bättre utan att göra någon sämre."
-      },
-      {
-        term: "Utilitarism",
-        def: "Social välfärd är summan av individers nyttor. Omfördelning motiveras tills marginalnyttan av inkomst är lika."
-      },
-      {
-        term: "Rawlsian maximin",
-        def: "Social välfärd bestäms av den sämst ställdes nytta. Politiken ska maximera denna."
-      },
-      {
-        term: "Equality vs equity",
-        def: "Equality: lika utfall. Equity/fairness: rättvisa principer, inte nödvändigtvis lika utfall."
-      },
-      {
-        term: "Procedural fairness",
-        def: "Fokus på om processen varit rättvis, t.ex lika möjligheter, transparenta regler."
-      },
-      {
-        term: "Substantive fairness",
-        def: "Fokus på om utfallet är rättvist, t.ex fattigdomsreducering."
-      },
-      {
-        term: "Okun’s leaky bucket",
-        def: "Metafor för att omfördelning har effektivitetsförluster – 'läckage' genom skatter, beteendeförändringar och administration."
-      },
-      {
-        term: "Equality of opportunity",
-        def: "Skillnader ska bero på val och ansträngning, inte på bakgrundsfaktorer (accidents of birth)."
-      }
+      // Homo economicus och beteende
+    { term: "Homo economicus", def: "Rationell, självisk, perfekt optimerande individ med full information." },
+    { term: "Beyond homo economicus", def: "Modeller som inkluderar sociala preferenser, emotioner, heuristics och begränsad rationalitet." },
+    { term: "Decision utility", def: "Nyttan som människor förväntar sig före ett beslut (ex ante)." },
+    { term: "Experience utility", def: "Nyttan som faktiskt upplevs efter beslut (ex post)." },
+
+    // Effektivitet
+    { term: "Paretoeffektivitet", def: "Ingen kan få det bättre utan att någon får det sämre." },
+    { term: "Market efficiency", def: "I perfekt konkurrens maximeras total surplus." },
+    { term: "Pareto improvement", def: "Förändring där någon får det bättre och ingen får det sämre." },
+    { term: "Pareto frontier", def: "Mängden av alla möjliga Paretoeffektiva utfall." },
+
+    // Fairness
+    { term: "Equality", def: "Lika utfall." },
+    { term: "Equity", def: "Rättvisa principer — inte nödvändigtvis lika utfall." },
+    { term: "Substantive fairness", def: "Rättvisa i resultatet." },
+    { term: "Procedural fairness", def: "Rättvisa i processen som leder till resultatet." },
+
+    // Okun
+    { term: "Okun’s leaky bucket", def: "Omfördelning innebär läckage via administration, skatteeffekter och beteendeförändringar." },
+
+    // Social Welfare Functions
+    { term: "Utilitarian SWF", def: "SWF = Σu_i. Maximerar summan av nyttor och motiverar omfördelning tills marginalnyttan är lika." },
+    { term: "Rawlsian SWF", def: "SWF = min(u_i). Maximerar nyttan hos den sämst ställde (maximin-principen)." },
+
+    // Equality of Opportunity
+    { term: "Equality of opportunity", def: "Rättvisa ska bedömas efter möjligheter, inte utfall. Bakgrundsfaktorer ('accidents of birth') ska inte avgöra." },
+
+    // Commodity egalitarianism
+    { term: "Commodity egalitarianism", def: "Staten bör garantera grundläggande varor (mat, hälsa, utbildning), inte nödvändigtvis lika inkomster." },
+
+    // Social Preferences
+    { term: "Altruism", def: "Individen får nytta av andras nytta." },
+    { term: "Warm glow", def: "Nytta av själva givandet, inte bara mottagarens nytta." },
+    { term: "Inequality aversion", def: "Negativ utility av att ligga över eller under andra." },
+    { term: "Status preferences", def: "Utility från relativ position snarare än absolut nivå." },
+
+    // Well-being / Inequality
+    { term: "Life satisfaction", def: "Subjektivt mått på hur nöjd individen är med sitt liv." },
+    { term: "GDP criticism", def: "BNP fångar inte fritid, hälsa, miljö, oavlönat arbete eller ojämlikhet." },
+    { term: "Lorenzkurva", def: "Visar kumulativ inkomstfördelning." },
+    { term: "Gini-koefficient", def: "Mått på ojämlikhet: avstånd från perfekt jämlikhet." },
+    { term: "Equivalence scales", def: "Justerar inkomster för hushållsstorlek och komposition." }
     ],
     flashcards: [
-      {
-        q: "Vad innebär Paretoeffektivitet i en ekonomi?",
-        a: "Att inga ytterligare omfördelningar kan göras som förbättrar någons situation utan att försämra för någon annan."
-      },
-      {
-        q: "Varför är Paretoeffektivitet ett svagt rättvisekriterium?",
-        a: "För att det inte säger något om hur resurserna är fördelade – en extremt ojämlik fördelning kan vara Paretoeffektiv."
-      },
-      {
-        q: "Hur definierar utilitarismen social välfärd?",
-        a: "Som summan av allas nyttor. En poltik är bättre om den ökar total nytta, även om vissa individer förlorar."
-      },
-      {
-        q: "Hur skiljer sig Rawls syn på rättvisa från utilitarismens?",
-        a: "Rawls vill maximera nyttan för den sämst ställde (maximin), medan utilitarismen maximerar total nytta även om vissa hamnar mycket sämre."
-      },
-      {
-        q: "Vad illustrerar Okun’s leaky bucket?",
-        a: "Att omfördelning från rika till fattiga sker genom en 'läckande hink' – på vägen försvinner resurser via skatteeffekter och administration."
-      },
-      {
-        q: "Vad är skillnaden mellan equality och equity?",
-        a: "Equality handlar om lika utfall, equity om rättvisa principer – t.ex lika möjligheter eller kompensation för nackdelar."
-      },
-      {
-        q: "Vad menas med procedural fairness?",
-        a: "Att processen fram till utfallet upplevs rättvis (t.ex meritbaserad rekrytering), oavsett om slutresultatet är helt jämlikt."
-      },
-      {
-        q: "Vad menas med equality of opportunity?",
-        a: "Att alla ska ha samma möjligheter, och att skillnader i utfall ska bero på ansträngning och val, inte på faktorer man inte kan påverka."
-      },
-      {
-        q: "Ge ett exempel på en konflikt mellan efficiency och fairness.",
-        a: "En mycket progressiv skatt kan kraftigt minska fattigdom (fairness) men också minska incitament att arbeta extra (efficiency)."
-      },
-      {
-        q: "Hur kan sociala preferenser påverka klassiska effektivitetsresonemang?",
-        a: "Om individer bryr sig om andras inkomster (inequality aversion, status) kan en fördelning som är 'effektiv' i klassisk mening ändå vara politiskt instabil."
-      }
+    {
+      q: "Vad innebär Pareto-effektivitet och varför är det ett svagt rättvisekriterium?",
+      a: "Det betyder att ingen kan få det bättre utan att någon får det sämre. Det säger ingenting om hur rättvis fördelningen är."
+    },
+    {
+      q: "Kan en extremt ojämlik fördelning vara Pareto-effektiv?",
+      a: "Ja. Även en fördelning där en person har allt kan vara Pareto-effektiv om alla förändringar gör någon sämre."
+    },
+    {
+      q: "Vad är skillnaden mellan fairness och equality?",
+      a: "Equality = lika utfall. Fairness = rättvisa principer. De kan ge olika policyrekommendationer."
+    },
+    {
+      q: "Vad mäter en social welfare function?",
+      a: "Hur samhället värderar olika fördelningar av nytta. Möjliggör normativa jämförelser mellan utfall."
+    },
+    {
+      q: "Vad är utilitarismens syn på omfördelning?",
+      a: "Omfördela tills marginalnyttan av pengar är lika i hela befolkningen."
+    },
+    {
+      q: "Hur skiljer sig Rawls från utilitarism?",
+      a: "Rawls maximerar nyttan hos den sämst ställde (maximin). Utilitarismen maximerar total nytta."
+    },
+    {
+      q: "Vad innebär equality of opportunity?",
+      a: "Att möjligheter ska vara jämlika, oberoende av bakgrund. Utfall får skilja sig baserat på val."
+    },
+    {
+      q: "Vad betyder procedural fairness?",
+      a: "Att processen är rättvis — t.ex lika möjligheter, transparens, opartiskhet — oavsett resultat."
+    },
+    {
+      q: "Vad är Okun’s leaky bucket och vad illustrerar den?",
+      a: "Att omfördelning innebär läckage: administrativa kostnader, skatteeffekter, beteendeeffekter. Visar equity–efficiency-tradeoff."
+    },
+    {
+      q: "Hur kan social preferences leda till ineffektiva resultat i standardmodeller?",
+      a: "Altruism, inequality aversion och status kan göra att individer avviker från nyttomaximering."
+    },
+    {
+      q: "Vad är inequality aversion?",
+      a: "När individer får lägre nytta av att ligga över eller under andra i inkomst."
+    },
+    {
+      q: "Varför är statuskonsumtion ineffektivt?",
+      a: "Alla tävlar om relativ position → mer arbete/konsumtion utan högre välfärd på samhällsnivå."
+    },
+    {
+      q: "Hur relaterar nudges till fairness?",
+      a: "Nudges förändrar beteende utan att minska valfrihet och kan därför uppfattas som mer rättvisa än skatter."
+    },
+    {
+      q: "Hur påverkar equivalence scales fattigdomsmätning?",
+      a: "Striktare skalor sänker justerad inkomst för stora hushåll → fler klassas som fattiga."
+    },
+    {
+      q: "Vad är commodity egalitarianism?",
+      a: "Idén att staten bör garantera vissa basvaror (hälsa, utbildning, mat) oavsett inkomstnivå."
+    },
+    {
+      q: "Hur påverkar 'accidents of birth' rättviseargument?",
+      a: "De är faktorer individen inte kan påverka (t.ex. kön, föräldrar) och används som argument för omfördelning."
+    },
+    {
+      q: "Vad är skillnaden mellan absolut och relativ fattigdom?",
+      a: "Absolut: behovsbaserad miniminivå. Relativ: låg inkomst jämfört med övriga samhället."
+    },
+    {
+      q: "Varför mäter BNP inte välbefinnande bra?",
+      a: "BNP tar inte hänsyn till fritid, hälsa, miljö, ojämlikhet eller välmående."
+    },
+    {
+      q: "Vad är life satisfaction och varför används det?",
+      a: "Ett subjektivt mått på hur nöjd individen är med livet. Kompletterar objektiva mått som inkomst."
+    },
+    {
+      q: "Hur kan man argumentera för att ojämlikhet ibland är rättvis?",
+      a: "Om den speglar individuella val och ansträngning (procedural fairness)."
+    }
     ]
   },
 
