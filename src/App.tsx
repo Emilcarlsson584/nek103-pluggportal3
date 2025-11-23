@@ -168,47 +168,50 @@ const BLOCKS: Block[] = [
     description:
       "Intertemporala val, diskontering, beta–delta-modellen och present bias.",
     concepts: [
-      {
-        term: "Present value (PV)",
-        def: "Nuvarande värde av en framtida betalning: PV = FV / (1 + r)^t."
-      },
-      {
-        term: "Future value (FV)",
-        def: "Framtida värde av en nuvarande summa: FV = PV (1 + r)^t."
-      },
-      {
-        term: "Intertemporal budget constraint",
-        def: "Visar möjliga kombinationer av konsumtion idag och i framtiden givet inkomster och ränta."
-      },
-      {
-        term: "MRS (intertemporalt)",
-        def: "Marginal rate of substitution mellan konsumtion idag och i framtiden. Vid optimum: MRS = 1 + r."
-      },
-      {
-        term: "Exponential discounting",
-        def: "Standardmodellen där framtida nytta diskonteras med en konstant faktor δ^t och preferenser är tidskonsistenta."
-      },
-      {
-        term: "Beta–delta-modellen",
-        def: "Quasi-hyperbolisk diskontering: U = u(c0) + βδu(c1) + βδ^2u(c2)+… med β < 1 som fångar present bias."
-      },
-      {
-        term: "Present bias",
-        def: "Tendensen att övervärdera nutida konsumtion relativt framtida, jämfört med vad man själv tycker är optimalt på längre sikt."
-      },
-      {
-        term: "Naiv individ",
-        def: "Individ som har present bias men inte inser det. Tror att framtida jag kommer följa dagens planer."
-      },
-      {
-        term: "Sofistikerad individ",
-        def: "Individ med present bias som inser sina självkontrollproblem och därför efterfrågar commitment devices."
-      },
-      {
-        term: "Commitment device",
-        def: "Självpåtaget åtagande eller begränsning som hjälper individen att få framtida beteende att stämma med dagens planer (t.ex bundet sparande, deadlines)."
-      }
-    ],
+  { term: "Present Value (PV)", def: "Nuvarande värde av en framtida summa: PV = FV / (1+r)^t." },
+  { term: "Future Value (FV)", def: "Framtida värde av en summa idag: FV = PV(1+r)^t." },
+  { term: "Compounded interest", def: "Ränta på ränta-effekten som gör att tillgångar växer snabbare över tid." },
+
+  // Tvåperiodsmodellen
+  { term: "Endowment", def: "Individens resurser i period 1 och 2, t.ex lön idag och lön i framtiden." },
+  { term: "Intertemporal budget constraint", def: "c1 + c2/(1+r) = y1 + y2/(1+r), bestämmer möjliga val över tid." },
+  { term: "Intertemporal choice", def: "Val mellan konsumtion idag (c1) och konsumtion senare (c2)." },
+
+  // Optimum
+  { term: "Indifference curves", def: "Visar kombinationer av c1 och c2 som ger samma nytta. Brantare kurva = mer tålamod." },
+  { term: "Intertemporal MRS", def: "MRS(c1, c2) = 1+r vid optimum; individens bytesvilja mellan nutid och framtid." },
+  { term: "Income effect", def: "Ökad total rikedom → ökar c1 och c2." },
+  { term: "Substitution effect", def: "Högre ränta gör framtida konsumtion billigare → individen sparar mer." },
+
+  // Standardteorins antaganden
+  { term: "Time consistency", def: "Beslut fattade idag över framtiden ångras inte när framtiden kommer." },
+  { term: "Utility independence", def: "Nytta i en period beror inte på konsumtion i andra perioder." },
+  { term: "Stationary utility", def: "Nytta bedöms likadant över tid; inga preferensförändringar." },
+  { term: "No habit formation", def: "Tidigare konsumtion påverkar inte dagens nytta." },
+
+  // Empiriska avvikelser
+  { term: "Present bias", def: "Individer övervärderar nutida belöningar relativt framtida." },
+  { term: "Juice-experimentet", def: "Visar att barn och vuxna väljer små belöningar idag framför större senare." },
+
+  // Beta–delta-modellen
+  { term: "Beta (β)", def: "Fångar present bias. β < 1 innebär övervärdering av nuet." },
+  { term: "Delta (δ)", def: "Långsiktigt diskonteringsmått; hur starkt framtiden väger i beslut." },
+  { term: "Quasi-hyperbolic discounting", def: "U(c0) + βδu(c1) + βδ^2u(c2)... som ger tidsinkonsistens." },
+
+  // Typer av individer
+  { term: "Naiv individ", def: "Tror framtida jag kommer ha bättre självkontroll än vad som faktiskt sker." },
+  { term: "Sophisticated individ", def: "Inser sitt självkontrollproblem och söker skydd i commitment devices." },
+
+  // Commitment devices
+  { term: "Commitment device", def: "Bindande regler eller kontrakt som låser framtida beteende för att undvika impulsivitet." },
+  { term: "Self-exclusion", def: "Att frivilligt blockera sig själv från oönskade val (ex. spel)." },
+  { term: "Deadlines", def: "Framtvingar beteende genom tidsgränser." },
+  { term: "Prepayment", def: "Förbetalning (ex. gymkort) som ökar motivationen att nyttja tjänsten." },
+
+  // Övrigt
+  { term: "Marshmallow-experimentet", def: "Visar variation i självkontroll och förekomst av tidsinkonsistens." },
+  { term: "Financial literacy", def: "Kunskap om ränta, lån, sparande — låg nivå → sämre beslut över tid." }
+],
     flashcards: [
       {
         q: "Vad är present value (PV) och varför är det viktigt i intertemporala beslut?",
